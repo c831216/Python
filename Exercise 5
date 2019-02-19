@@ -1,0 +1,67 @@
+# https://www.practicepython.org/exercise/2014/03/05/05-list-overlap.html
+
+# Exercise 5 (and Solution)
+# Take two lists, say for example these two:
+
+# a = [1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+# b = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+
+# and write a program that returns a list that contains only the elements that are common between the lists (without duplicates). 
+# Make sure your program works on two lists of different sizes.
+
+# Extras:
+
+# Randomly generate two lists to test this
+# Write this in one line of Python (don’t worry if you can’t figure this out at this point - we’ll get to it soon)
+
+import random
+
+a = []
+
+for i in range(0,30):
+    x = random.randint(1,100)
+    a.append(x)
+
+b = []
+
+for i in range(0,25):
+    x = random.randint(1,100)
+    b.append(x)
+
+c = []
+
+i = 0
+j = 0
+
+alen = len(a)
+blen = len(b)
+
+if alen > blen:
+    print("A")
+    while i < alen:
+        # check and update a new c list
+        j = 0
+        while j < blen:
+            if a[i] == b[j]:
+                c.append(a[i])
+            j += 1
+        i += 1
+else:
+    print("B")
+    while i < blen:
+        # check and update a new c list
+        j = 0
+        while j < alen:
+            if b[i] == a[j]:
+                c.append(b[i])
+            j += 1
+        i += 1
+
+# print(c,)
+
+s = []
+for x in c:
+    if x not in s:
+          s.append(x)
+
+print(s,)
